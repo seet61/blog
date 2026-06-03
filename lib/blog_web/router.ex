@@ -1,4 +1,5 @@
 defmodule BlogWeb.Router do
+  alias BlogWeb.ArticleController
   use BlogWeb, :router
 
   pipeline :browser do
@@ -15,10 +16,15 @@ defmodule BlogWeb.Router do
   end
 
   scope "/", BlogWeb do
+    # scope "/" do
     pipe_through :browser
 
-    get "/", PageController, :home
-    get "/articles", ArticleController, :index
+    get "/", ArticleController, :index
+    # каждый по отдельности
+    # get "/articles", ArticleController, :index
+    # get "/articles/:id", ArticleController, :show
+    # целиком ресурс определить. маршруты mix phx.routes
+    resources "/articles", ArticleController
   end
 
   # Other scopes may use custom stacks.

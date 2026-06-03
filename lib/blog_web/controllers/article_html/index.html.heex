@@ -1,3 +1,11 @@
 <h1 class="text-lg text-brand">
   Hello Phoenix, I'm noobie
 </h1>
+
+<ul class="pt-5">
+  <li :for={article <- @articles}>
+    <a href={~p"/articles/#{article}"}>
+      {article.title}
+    </a>
+  </li>
+</ul>
