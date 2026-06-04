@@ -1,0 +1,19 @@
+<h1>
+  New Article
+</h1>
+
+<.form :let={f} for={@changeset} phx-submit="save" phx-change="validate">
+  <div class="space-y-4">
+    <div>
+      <.input field={@f[:title]} type="text" label="Title" />
+    </div>
+
+    <div>
+      <.input field={@f[:body]} type="text" label="Body" />
+    </div>
+
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+      Сохранить статью
+    </button>
+  </div>
+</.form>
